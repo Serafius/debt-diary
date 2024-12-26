@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DebtDiary">
+
+    <!-- Custom colors -->
+    <Color x:Key="VeryLightGrey">#e5e5e5</Color>
+    <SolidColorBrush x:Key="VeryLightGreyBrush" Color="{StaticResource VeryLightGrey}" />
+    
+    <Color x:Key="LightGrey">#aaaaaa</Color>
+    <SolidColorBrush x:Key="LightGreyBrush" Color="{StaticResource LightGrey}" />
+
+    <Color x:Key="Grey">#6e6e6e</Color>
+    <SolidColorBrush x:Key="GreyBrush" Color="{StaticResource Grey}" />
+
+    <Color x:Key="DarkGrey">#4d4d4d</Color>
+    <SolidColorBrush x:Key="DarkGreyBrush" Color="{StaticResource DarkGrey}" />
+
+    <Color x:Key="DarkGreyHover">#595959</Color>
+    <SolidColorBrush x:Key="DarkGreyHoverBrush" Color="{StaticResource DarkGreyHover}" />
+
+    <Color x:Key="VeryDarkGrey">#444444</Color>
+    <SolidColorBrush x:Key="VeryDarkGreyBrush" Color="{StaticResource VeryDarkGrey}" />
+
+    <Color x:Key="RedHover">#d00000</Color>
+    <SolidColorBrush x:Key="RedHoverBrush" Color="{StaticResource RedHover}" />
+
+    <Color x:Key="ButtonGreen">#048a81</Color>
+    <SolidColorBrush x:Key="ButtonGreenBrush" Color="{StaticResource ButtonGreen}" />
+
+    <Color x:Key="ButtonGreenHover">#047873</Color>
+    <SolidColorBrush x:Key="ButtonGreenHoverBrush" Color="{StaticResource ButtonGreenHover}" />
+    
+</ResourceDictionary>

@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountCreatedSubtitle" xml:space="preserve">
+    <value>Możesz się zalogować</value>
+  </data>
+  <data name="AccountCreatedTitle" xml:space="preserve">
+    <value>Twoje konto zostało utworzone</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AdditionDate" xml:space="preserve">
+    <value>Data dodania</value>
+  </data>
+  <data name="AddNewDebtor" xml:space="preserve">
+    <value>Dodaj nowego dłużnika</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Kwota</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Dziennik długów</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Załóż konto</value>
+  </data>
+  <data name="DebtFemale" xml:space="preserve">
+    <value>Jest ci winna</value>
+  </data>
+  <data name="DebtMale" xml:space="preserve">
+    <value>Jest ci winny</value>
+  </data>
+  <data name="DebtorExist" xml:space="preserve">
+    <value>Ten dłużnik został już dodany</value>
+  </data>
+  <data name="Debtors" xml:space="preserve">
+    <value>DŁUŻNICY</value>
+  </data>
+  <data name="DebtsCourse" xml:space="preserve">
+    <value>Przebieg długów</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="DifferentPasswords" xml:space="preserve">
+    <value>Hasła nie są takie same</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmptyEmail" xml:space="preserve">
+    <value>Wprowadź adres e-mail</value>
+  </data>
+  <data name="EmptyFirstName" xml:space="preserve">
+    <value>Wprowadź imię</value>
+  </data>
+  <data name="EmptyLastName" xml:space="preserve">
+    <value>Wprowadź nazwisko</value>
+  </data>
+  <data name="EmptyPassword" xml:space="preserve">
+    <value>Wprowadź hasło</value>
+  </data>
+  <data name="EmptyRepeatedPassword" xml:space="preserve">
+    <value>Powtórz hasło</value>
+  </data>
+  <data name="EmptyUsername" xml:space="preserve">
+    <value>Wprowadź nazwę użytkownika</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Kobieta</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Imię i nazwisko</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Płeć</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>OGÓLNE</value>
+  </data>
+  <data name="IncorrectEmail" xml:space="preserve">
+    <value>Niepoprawny adres e-mail</value>
+  </data>
+  <data name="IncorrectFirstName" xml:space="preserve">
+    <value>Niepoprawne imię</value>
+  </data>
+  <data name="IncorrectLastName" xml:space="preserve">
+    <value>Niepoprawne nazwisko</value>
+  </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>Niepoprawne hasło</value>
+  </data>
+  <data name="IncorrectUsername" xml:space="preserve">
+    <value>Niepoprawna nazwa użytkownika</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="LastOperation" xml:space="preserve">
+    <value>Ostatnia operacja</value>
+  </data>
+  <data name="Loan" xml:space="preserve">
+    <value>Pożyczka</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="LoginPageSubtitle" xml:space="preserve">
+    <value>Potrzebujesz miejsca do zapisania informacji o długach?</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Mężczyzna</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
+  </data>
+  <data name="NewDebtorAddedSubtitle" xml:space="preserve">
+    <value>Zostaniesz teraz przeniesiony do jego podstrony</value>
+  </data>
+  <data name="NewDebtorAddedTitle" xml:space="preserve">
+    <value>Nowy dłużnik został dodany</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>brak</value>
+  </data>
+  <data name="NumberOfOperations" xml:space="preserve">
+    <value>Liczba operacji</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>Operacje</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Hasło musi posiadać minimum 8 znaków</value>
+  </data>
+  <data name="PersonFemale" xml:space="preserve">
+    <value>Ona</value>
+  </data>
+  <data name="PersonMale" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Rejestracja</value>
+  </data>
+  <data name="RegisterPageSubtitle" xml:space="preserve">
+    <value>Masz już już konto?</value>
+  </data>
+  <data name="Repayment" xml:space="preserve">
+    <value>Spłata</value>
+  </data>
+  <data name="RepeatPassword" xml:space="preserve">
+    <value>Powtórz hasło</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Logowanie</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Wyloguj się</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Załóż konto</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Podsumowanie</value>
+  </data>
+  <data name="TakenEmail" xml:space="preserve">
+    <value>Adres e-mail jest zajęty</value>
+  </data>
+  <data name="TakenUsername" xml:space="preserve">
+    <value>Nazwa użytkownika jest zajęta</value>
+  </data>
+  <data name="UnselectedGender" xml:space="preserve">
+    <value>Płeć nie została wybrana</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
+  <data name="WhoBorrowed" xml:space="preserve">
+    <value>Kto pożyczył?</value>
+  </data>
+  <data name="WhoRepayed" xml:space="preserve">
+    <value>Kto spłacił?</value>
+  </data>
+  <data name="You" xml:space="preserve">
+    <value>Ty</value>
+  </data>
+  <data name="MinusDebtFemaleToFemale" xml:space="preserve">
+    <value>Jesteś jej winna</value>
+  </data>
+  <data name="MinusDebtFemaleToMale" xml:space="preserve">
+    <value>Jesteś jej winny</value>
+  </data>
+  <data name="MinusDebtMaleToFemale" xml:space="preserve">
+    <value>Jesteś mu winna</value>
+  </data>
+  <data name="MinusDebtMaleToMale" xml:space="preserve">
+    <value>Jesteś mu winny</value>
+  </data>
+  <data name="EmptyDescription" xml:space="preserve">
+    <value>Wprowadź opis</value>
+  </data>
+  <data name="EmptyValue" xml:space="preserve">
+    <value>Wprowadź kwotę</value>
+  </data>
+  <data name="IncorrectDescription" xml:space="preserve">
+    <value>Niepoprawny opis</value>
+  </data>
+  <data name="IncorrectValue" xml:space="preserve">
+    <value>Niepoprawna kwota</value>
+  </data>
+  <data name="NegativeNumber" xml:space="preserve">
+    <value>Wprowadź dodatnią kwotę</value>
+  </data>
+  <data name="NoDebtorsAdded" xml:space="preserve">
+    <value>Nie dodano żadnego dłużnika</value>
+  </data>
+  <data name="NoOperationsAdded" xml:space="preserve">
+    <value>Nie dodano żadnej operacji</value>
+  </data>
+  <data name="NumberOfDebtors" xml:space="preserve">
+    <value>Liczba dłużników</value>
+  </data>
+  <data name="SumOfDebts" xml:space="preserve">
+    <value>Suma długów</value>
+  </data>
+  <data name="DebtCourse" xml:space="preserve">
+    <value>Przebieg długu</value>
+  </data>
+  <data name="LastOperations" xml:space="preserve">
+    <value>Ostatnie operacje</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Obecne hasło</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Edytuj profil</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nowe hasło</value>
+  </data>
+  <data name="ProfileUpdatedSubtitle" xml:space="preserve">
+    <value>Możesz edytować go ponownie lub zmienić hasło</value>
+  </data>
+  <data name="ProfileUpdatedTitle" xml:space="preserve">
+    <value>Twój profil został zaktualizowany</value>
+  </data>
+  <data name="RepeatNewPassword" xml:space="preserve">
+    <value>Powtórz nowe hasło</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
+  <data name="EmptyCurrentPassword" xml:space="preserve">
+    <value>Wprowadź obecne hasło</value>
+  </data>
+  <data name="EmptyNewPassword" xml:space="preserve">
+    <value>Wprowadź nowe hasło</value>
+  </data>
+  <data name="EmptyRepeatedNewPassword" xml:space="preserve">
+    <value>Powtórz nowe hasło</value>
+  </data>
+  <data name="IncorrectCurrentPassword" xml:space="preserve">
+    <value>Niepoprawne obecne hasło</value>
+  </data>
+  <data name="PasswordChangedSubtitle" xml:space="preserve">
+    <value>Możesz znów je zmienić lub edytować swój profil</value>
+  </data>
+  <data name="PasswordChangedTitle" xml:space="preserve">
+    <value>Twoje hasło zostało zmienione</value>
+  </data>
+  <data name="DebtorEditedSubtitle" xml:space="preserve">
+    <value>Możesz teraz sprawdzić wprowadzone zmiany</value>
+  </data>
+  <data name="DebtorEditedTitle" xml:space="preserve">
+    <value>Dłużnik został edytowany</value>
+  </data>
+  <data name="EditDebtor" xml:space="preserve">
+    <value>Edytuj dłużnika</value>
+  </data>
+  <data name="DebtorDeletedSubtitle" xml:space="preserve">
+    <value>Zostaniesz teraz przeniesiony do podsumowania</value>
+  </data>
+  <data name="DebtorDeletedTitle" xml:space="preserve">
+    <value>Dłużnik został usunięty</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="DeleteDebtor" xml:space="preserve">
+    <value>Usuń dłużnika</value>
+  </data>
+  <data name="YourPassword" xml:space="preserve">
+    <value>Twoje hasło</value>
+  </data>
+  <data name="AddADebtor" xml:space="preserve">
+    <value>Dodaj dłużnika</value>
+  </data>
+  <data name="NoInternetConnectionSubtitle" xml:space="preserve">
+    <value>Sprawdź swoje połączenie z internetem</value>
+  </data>
+  <data name="NoInternetConnectionTitle" xml:space="preserve">
+    <value>Wystąpił problem z bazą danych</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="IncorrectDate" xml:space="preserve">
+    <value>Niepoprawna data</value>
+  </data>
+</root>

@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="DebtDiary.StatisticPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DebtDiary"
+             xmlns:localization="clr-namespace:DebtDiary.Localization" 
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="260">
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border>
+                            <Border.Background>
+
+                                <SolidColorBrush>
+                                    <SolidColorBrush.Color>
+                                        <MultiBinding Converter="{local:StatisticPanelMessageToBrushConverter}" FallbackValue="YellowGreen">
+                                            <Binding Path="Message"/>
+                                            <Binding Path="Value"/>
+                                        </MultiBinding>
+                                    </SolidColorBrush.Color>
+                                </SolidColorBrush>
+                            </Border.Background>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <!--#region Icon-->
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="8*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="Black" Opacity="0.12"/>
+                                    </Grid.Background>
+                                    
+                                    <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToIconConverter}, FallbackValue='&#xEADF;'}" 
+                                                   Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" 
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Viewbox>
+                                </Grid>
+                                <!--#endregion-->
+
+                                <!--#region Content-->
+                                <Grid Grid.Column="1" Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Message -->
+                                    <Border  Grid.Row="0">
+                                        <Viewbox HorizontalAlignment="Left">
+                                            <TextBlock Foreground="White">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{local:StatisticPanelMessageToStringConverter}" FallbackValue="Owes you">
+                                                        <Binding Path="Message"/>
+                                                        <Binding Path="Value"/>
+                                                        <Binding Path="UsersGender"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </Viewbox>
+                                    </Border>
+
+                                    <!-- Value -->
+                                    <Border Grid.Row="1">
+                                        <Viewbox HorizontalAlignment="Left">
+                                            <TextBlock Foreground="White">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{local:StatisticPanelMessageValueConverter}" FallbackValue="1000.00 zł"
+                                                                  TargetNullValue="{x:Static localization:Strings.None}">
+                                                        <Binding Path="Message"/>
+                                                        <Binding Path="Value"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </Viewbox>
+                                    </Border>
+                                </Grid>
+                                <!--#endregion-->
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ContentControl Style="{StaticResource ContentStyle}" />
+</UserControl>

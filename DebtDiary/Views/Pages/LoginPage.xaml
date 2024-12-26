@@ -1,0 +1,92 @@
+﻿<Page x:Class="DebtDiary.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
+      mc:Ignorable="d" x:Name="Page"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="LoginPage">
+
+    <Grid>
+        <!--#region Fade in & Fade out animations-->
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsPageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+                        </MultiDataTrigger.Conditions>
+
+                        <!-- Fade in animation -->
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.8" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <!-- Fade out animation -->
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.6" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <!--#endregion-->
+
+        <!--#region Column Definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+
+        <!--#region Go to Register Page-->
+        <Grid Grid.Column="0">
+            <StackPanel VerticalAlignment="Center">
+                <!-- Application Name -->
+                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" Style="{StaticResource ApplicationName}"/>
+                <!-- Subtitle -->
+                <TextBlock Text="{x:Static localization:Strings.LoginPageSubtitle}" Style="{StaticResource PageSubtitle}"/>
+                <!-- Create Account Button -->
+                <Button x:Name="CreateAccountButton" Content="{x:Static localization:Strings.CreateAccount}" 
+                        IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBooleanConverter}}" 
+                        Command="{Binding CreateAccountCommand}" Margin="0 10" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Login Panel-->
+        <Grid Grid.Column="1">
+            <StackPanel Width="300" Background="White" VerticalAlignment="Center">
+                <!-- Sign In Title -->
+                <TextBlock Text="{x:Static localization:Strings.SignIn}" Style="{StaticResource WhitePanelTitle}"/>
+                <!-- Username -->
+                <TextBox Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginPageTextBox}"
+                         local:FormMessageProperty.Value="{Binding UsernameMessage}"/>
+                <!-- Password -->
+                <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"
+                             local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
+                <!-- Login Button -->
+                <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"
+                        local:IsBusyProperty.Value="{Binding IsLoginRunning}" Margin="0 20 0 40" HorizontalAlignment="Center"/>
+
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"/>
+                </StackPanel.InputBindings>
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+        
+    </Grid>
+</Page>

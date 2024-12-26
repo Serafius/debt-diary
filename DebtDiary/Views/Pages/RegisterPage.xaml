@@ -1,0 +1,145 @@
+﻿<Page x:Class="DebtDiary.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      mc:Ignorable="d" x:Name="Page"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="RegisterPage">
+
+    <Grid>
+        <!--#region Fade in & Fade out animations-->
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsPageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+                        </MultiDataTrigger.Conditions>
+
+                        <!-- Fade in animation -->
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.8" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <!-- Fade out animation -->
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.6" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <!--#endregion-->
+
+        <!--#region Column Definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+
+        <!--#region Back to Login Page-->
+        <Grid Grid.Column="0">
+            <StackPanel VerticalAlignment="Center">
+                <!-- Application Name -->
+                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" Style="{StaticResource ApplicationName}"/>
+                <!-- Subtitle -->
+                <TextBlock Text="{x:Static localization:Strings.RegisterPageSubtitle}" Style="{StaticResource PageSubtitle}" Margin="30 10"/>
+                <!-- Login Button -->
+                <Button x:Name="LoginButton" Content="{x:Static localization:Strings.Login}" 
+                        IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBooleanConverter}}" 
+                        Command="{Binding LoginCommand}" Margin="0 10" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Register panel-->
+        <Grid Grid.Column="1" Width="600" Background="White" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Register title -->
+            <TextBlock Grid.ColumnSpan="2" Grid.Row="0" Text="{x:Static localization:Strings.Register}" Style="{StaticResource WhitePanelTitle}"/>
+
+            <!-- First Name -->
+            <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"
+                     local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
+
+            <!-- Last Name -->
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"
+                     local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
+
+            <!-- Username -->
+            <TextBox Grid.Column="0" Grid.Row="2" Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource RegisterPageLeftTextBox}"
+                     local:FormMessageProperty.Value="{Binding UsernameMessage}"/>
+
+            <!-- E-mail -->
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Email}" Tag="{x:Static localization:Strings.Email}" Style="{StaticResource RegisterPageRightTextBox}"
+                     local:FormMessageProperty.Value="{Binding EmailMessage}"/>
+
+            <!-- Password -->
+            <PasswordBox x:Name="UserPassword" Grid.Column="0" Grid.Row="3" Tag="{x:Static localization:Strings.Password}" 
+                         Style="{StaticResource RegisterPageLeftPasswordBox}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
+
+            <!-- Repeat Password -->
+            <PasswordBox x:Name="RepeatUserPassword" Grid.Column="1" Grid.Row="3" Tag="{x:Static localization:Strings.RepeatPassword}" 
+                         Style="{StaticResource RegisterPageRightPasswordBox}" local:FormMessageProperty.Value="{Binding RepeatedPasswordMessage}"/>
+
+            <!-- Gender -->
+            <!-- Text -->
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource FormMessageTitleTextBlock}"
+                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+
+            <!-- Radio buttons -->
+            <StackPanel  Grid.Column="1" Grid.Row="4" >
+                <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
+                    <RadioButton Content="{x:Static localization:Strings.Male}" 
+                             IsChecked="{Binding Gender, Converter={local:GenderToBooleanConverter}, ConverterParameter='Male'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                    <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
+                             IsChecked="{Binding Gender, Converter={local:GenderToBooleanConverter}, ConverterParameter='Female'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                </StackPanel>
+
+                <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}"  local:FormMessageProperty.Value="{Binding GenderMessage}" 
+                           Style="{StaticResource FormMessageTextBlock}" Margin="25 3 5 0" />
+            </StackPanel>
+
+
+            <!-- Sign Up button -->
+            <Button Grid.ColumnSpan="2" Grid.Row="5" Content="{x:Static localization:Strings.SignUp}" Margin="0 20 0 40" HorizontalAlignment="Center"
+                    Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=Page}" local:IsBusyProperty.Value="{Binding IsRegisterRunning}"/>
+
+
+            <!-- Enter key binding -->
+            <Grid.InputBindings>
+                <KeyBinding Key="Enter" Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=Page}"/>
+            </Grid.InputBindings>
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

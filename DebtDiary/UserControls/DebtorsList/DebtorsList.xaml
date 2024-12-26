@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="DebtDiary.DebtorsList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DebtDiary"
+             xmlns:localization="clr-namespace:DebtDiary.Localization"
+             mc:Ignorable="d" Width="250"
+             d:DesignHeight="240" d:DesignWidth="260">
+    <Grid d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" Background="{StaticResource DarkGreyBrush}">
+        <TextBlock Text="{x:Static localization:Strings.NoDebtorsAdded}" Foreground="LightGray" TextAlignment="Center" Margin="0 5 0 0"
+                   Visibility="{Binding IsAnyDebtorAdded, Converter={local:BooleanToVisibilityConverter}, FallbackValue=Hidden}"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Debtors}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:DebtorsListItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

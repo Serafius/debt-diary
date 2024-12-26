@@ -1,0 +1,156 @@
+﻿<Page x:Class="DebtDiary.DiaryPage" x:Name="Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
+      mc:Ignorable="d"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="DiaryPage" d:DataContext="{x:Static local:DiaryPageDesignModel.Instance}">
+
+    <Grid>
+        <!--#region Fade in & Fade out animations-->
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsPageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+                        </MultiDataTrigger.Conditions>
+
+                        <!-- Fade in animation -->
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.4" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <!-- Fade out animation -->
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.3" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+
+        <!--#endregion-->
+        <!--#region Page column definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+
+        <!--#region Menu-->
+        <Grid Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
+            <Border Background="{StaticResource DarkGreyBrush}">
+                <Grid Margin="0 25 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Account info -->
+                    <StackPanel Grid.Row="0">
+                        <!-- Avatar -->
+                        <Label Width="130" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" 
+                               Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
+
+                        <!-- Full name -->
+                        <Viewbox HorizontalAlignment="Center" Margin="10 10 10 0" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="26"/>
+                        </Viewbox>
+
+                        <!-- Username -->
+                        <Viewbox HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding Username}" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22" TextAlignment="Center"/>
+                        </Viewbox>
+
+                        <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
+                    </StackPanel>
+
+                    <!-- Menu -->
+                    <Grid VerticalAlignment="Stretch" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0">
+                            <!-- General headline -->
+                            <TextBlock Text="{x:Static localization:Strings.General}" Style="{StaticResource MenuHeadlineText}"/>
+
+                            <!-- Summary button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" 
+                                    local:IconProperty.Value="{StaticResource HomeIcon}" Command="{Binding SummaryCommand}"
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
+                                    Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='SummarySubpage'}"/>
+
+                            <!-- My Account button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
+                                    local:IconProperty.Value="{StaticResource ContactIcon}" Command="{Binding MyAccountCommand}"
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
+                                    Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='MyAccountSubpage'}"/>
+                            
+                            <!-- Add new debtor button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.AddADebtor}" 
+                                    local:IconProperty.Value="{StaticResource AddIcon}" Command="{Binding AddDebtorCommand}"
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
+                                    Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='AddDebtorSubpage'}"/>
+
+                            <!-- Logout button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}"
+                                    local:IconProperty.Value="{StaticResource PowerIcon}" Command="{Binding LogoutCommand}"/>
+
+                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Debtors headline -->
+                                <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" 
+                                           FontSize="16" Margin="10 0 0 5"/>
+                                
+                                <!-- Sort debtors button -->
+                                <Button Grid.Column="1" Style="{StaticResource DarkIconButton}" Content="{Binding SortType, Converter={local:SortTypeToIconConverter}}" Margin="3 2 15 0"
+                                        Command="{Binding SortCommand}" FontSize="17" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <!-- Debtors list -->
+                        <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" DataContext="{Binding DebtorsList}"/>
+
+                        <!-- Footer -->
+                        <StackPanel Grid.Row="2">
+                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 0 0 0"/>
+                            <TextBlock  Grid.Column="1" Text="{x:Static localization:Strings.AuthorString}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"
+                                            Foreground="White" FontFamily="{StaticResource GeosansLight}" Margin="0 0 5 0"/>
+
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region SubPage-->
+        <Border Grid.Column="1" Background="#e5e5e5" DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}}">
+            <Frame Content="{Binding CurrentSubpage, Converter={local:ApplicationSubpageConverter}}" NavigationUIVisibility="Hidden" local:DisableNavigation.Disable="True"/>
+        </Border>
+        <!--#endregion-->
+
+    </Grid>
+</Page>
